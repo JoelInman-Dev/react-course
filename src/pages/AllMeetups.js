@@ -1,5 +1,6 @@
 import MeetupList from "../components/meetups/MeetupList";
 import { useState, useEffect } from "react";
+import ApiLink from "../components/meetups/ApiLink";
 
 function AllMeetupsPage() {
   // add Loading state for getting meetups
@@ -16,9 +17,7 @@ function AllMeetupsPage() {
 
     // using fetch(), you can define it as a POST method along with setting all the other properties for a http request,
     // you can also use `axios` to handle this instead - but i dont know that yet :)
-    fetch(
-      "https://react-getting-started-6aed2-default-rtdb.firebaseio.com/meetups.json"
-    )
+    fetch(ApiLink())
       .then((response) => {
         // this json() function also returns a promise and the data from the response body.
         return response.json();
